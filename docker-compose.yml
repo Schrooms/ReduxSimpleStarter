@@ -4,9 +4,10 @@ services:
     image: "node-redux"
     build: .
     user: "node"
-    working_dir: /home/node/app
+    working_dir: /usr/src/app
     volumes:
-      - ./:/home/node/app
-    expose:
-      - "8080"
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "8080:8080"
     command: npm start
